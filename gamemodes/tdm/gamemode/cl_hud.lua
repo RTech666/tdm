@@ -178,27 +178,10 @@ local function DrawXP( ply )
 
 end
 
--- Draw HUD health, stamina and ammo/weapon
+-- Draw HUD ammo/weapon
 local function DrawHUD( ply )
     local playerTeam = team.GetName( ply:Team() )
     local playerClass = player_manager.GetPlayerClass( ply )
-
-    local prec = currentHealth / ply:GetMaxHealth()
-    prec = math.Clamp( prec, 0, 1 )
-    draw.RoundedBox( 0, 57, ScrH() - 150, 306 * prec, 15, Color(210,50,50,240) )
-
-    surface.SetDrawColor( 255, 255, 255, 2 );
-    surface.SetTexture( gradient );
-    surface.DrawTexturedRect( 57, ScrH() - 145, 306, 10);
-
-    surface.SetDrawColor( 0, 0, 0, 90 );
-    surface.SetTexture( gradient2 );
-    surface.DrawTexturedRect( 57, ScrH() - 150, 306, 15 );
-
-    --Stamina Bar
-    local prec = currentStamina / 100 
-    prec = math.Clamp( prec, 0, 1 )
-    draw.RoundedBox( 0, 57, ScrH() - 135, 306 * prec, 3, Color( 255, 225, 75, 240) )
 
     --If weapon equipped, display box and weapon name
     if ply:GetActiveWeapon() != NULL then
@@ -319,9 +302,9 @@ function GM:HUDPaint()
 
         --Hud for Spectators
 
-        --local commandText = "[F1] Switch Teams"
-        --draw.DrawText( commandText, "CommandsShadow", 60 + 11, ScrH()-78 + 1, Color(0, 0, 0, 255), TEXT_ALIGN_LEFT ) 
-        --draw.DrawText( commandText, "Commands", 60 + 10, ScrH()-78 , Color(255, 255, 255, 255), TEXT_ALIGN_LEFT ) 
+        local commandText = "[F1] Switch Teams"
+        draw.DrawText( commandText, "CommandsShadow", 60 + 11, ScrH()-78 + 1, Color(0, 0, 0, 255), TEXT_ALIGN_LEFT ) 
+        draw.DrawText( commandText, "Commands", 60 + 10, ScrH()-78 , Color(255, 255, 255, 255), TEXT_ALIGN_LEFT ) 
 
 	else
 

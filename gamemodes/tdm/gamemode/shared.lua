@@ -1,26 +1,27 @@
 DeriveGamemode( "base" )
 
 GM.Name = "Team Deathmatch"
-GM.Author = "Stupid"
-GM.Email = "stupid@stupids-servers.com"
-GM.Website = "www.stupids-servers.com"
+GM.Author = "Stupid & RTech"
+GM.Email = ""
+GM.Website = ""
 GM.TeamBased = true
-GM.Version = "11-23-15"
+GM.Version = "11-01-17"
 
 include( "mapvote/mapvote.lua" )
 include( "weaponry_shd.lua" )
 
---Class Config
+--Config
 include( "config/loadout_config.lua" )
+include( "config/team_config.lua" )
 
 TEAM_RED = 1
 TEAM_BLUE = 2
 TEAM_SPEC = 3
 
 function GM:CreateTeams()
-	team.SetUp( TEAM_RED, "Red", Color( 255, 60, 60, 255 ), true )
-	team.SetUp( TEAM_BLUE, "Blue", Color( 60, 60, 255, 255 ), true )
-	team.SetUp( TEAM_SPEC, "Spectator", Color( 60, 60, 60 , 255 ), true )
+	team.SetUp( TEAM_RED, TDM_TeamRedName, Color( 255, 60, 60, 255 ), true )
+	team.SetUp( TEAM_BLUE, TDM_TeamBlueName, Color( 60, 60, 255, 255 ), true )
+	team.SetUp( TEAM_SPEC, TDM_TeamSpecName, Color( 60, 60, 60 , 255 ), true )
 
 	--Set Spawn Points
 	team.SetSpawnPoint( TEAM_RED, {"info_player_terrorist"} )

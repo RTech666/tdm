@@ -42,7 +42,7 @@ SWEP.NoSights = true
 
 SWEP.was_thrown = false
 
-SWEP.detonate_timer = 5
+SWEP.detonate_timer = 4
 
 SWEP.DeploySpeed = 1.5
 
